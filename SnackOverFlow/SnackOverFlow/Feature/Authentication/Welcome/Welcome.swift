@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-private enum StringItems : String {
+ enum StringItems : String {
     case FacebookLogin = "Sign in with Facebook"
+     case googleLogin = "Sign in Google"
+     case appleLogin = "Sign in Apple "
 }
 
 struct Welcome: View {
@@ -16,39 +18,39 @@ struct Welcome: View {
         ZStack{
             Image(Images.juice.rawValue).resizable()
             Color.black.opacity(0.3)
-            VStack {
-                Image(Icons.appLogo.rawValue)
-                FacebookButton(onTop: {}).padding(Edge.Set.top, 40)
-                       
-            }.padding(.paddingAll)
+            BodyView()
         }
+      
     }
 }
 
 struct Welcome_Previews: PreviewProvider {
     static var previews: some View {
-        Welcome()
+        Welcome().ignoresSafeArea(.all)
     }
 }
 
-
-struct FacebookButton : View {
-    var onTop : () -> Void
-    var body : some View {
-        Button { onTop()
+struct BodyView : View {
+    var body: some View {
+        GeometryReader { geometry in
+                        VStack {
+                            Spacer()
+            Image(Icons.appLogo.rawValue)
+                            Spacer()
+            FacebookButton(onTop: {}).padding(Edge.Set.top, 40)
+            GoogleButton(onTop: {})
+            AppleButton(onTop: {})
+                            Divider().background(Color.peach)
+                                .frame(width: geometry.dw(width: 0.6),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
+                            Spacer().frame(height: geometry.dh(height: 0.1))
             
-        }  label: {
-            HStack {
-                Image(IconsItem.Social.facebook.rawValue)
-                Text(StringItems.FacebookLogin.rawValue)
-                Spacer()
-            }.tint(.white)
-                .background(Color.deepSkyBlue)
-        }.buttonStyle(.borderedProminent)
-            .buttonBorderShape(.roundedRectangle)
-            .controlSize(.large)
+        }.padding(.paddingAll)
+        }
     }
 }
+
+
+
 
 
 
