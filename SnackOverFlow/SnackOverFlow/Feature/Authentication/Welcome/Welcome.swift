@@ -41,7 +41,7 @@ struct BodyView : View {
             GoogleButton(onTop: {})
             AppleButton(onTop: {})
                             Divider().background(Color.peach)
-                                .frame(width: geometry.dw(width: 0.5),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
+                                .frame(width: geometry.dw(width: 0.7),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
                             Spacer().frame(height: geometry.dh(height: 0.1))
             
         }.padding(.paddingAll)
