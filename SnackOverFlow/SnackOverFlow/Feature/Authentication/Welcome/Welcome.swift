@@ -17,7 +17,7 @@ struct Welcome: View {
     var body: some View {
         ZStack{
             Image(Images.juice.rawValue).resizable()
-            Color.black.opacity(0.3)
+            Color.black.opacity(0.4)
             BodyView()
         }
       
@@ -37,11 +37,11 @@ struct BodyView : View {
                             Spacer()
             Image(Icons.appLogo.rawValue)
                             Spacer()
-            FacebookButton(onTop: {}).padding(Edge.Set.top, 40)
+            FacebookButton(onTop: {}).padding(Edge.Set.top, 30)
             GoogleButton(onTop: {})
             AppleButton(onTop: {})
                             Divider().background(Color.peach)
-                                .frame(width: geometry.dw(width: 0.6),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
+                                .frame(width: geometry.dw(width: 0.5),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
                             Spacer().frame(height: geometry.dh(height: 0.1))
             
         }.padding(.paddingAll)
