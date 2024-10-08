@@ -37,11 +37,11 @@ struct BodyView : View {
                             Spacer()
             Image(Icons.appLogo.rawValue)
                             Spacer()
-            FacebookButton(onTop: {}).padding(Edge.Set.top, 30)
+            FacebookButton(onTop: {}).padding(Edge.Set.top, 40)
             GoogleButton(onTop: {})
             AppleButton(onTop: {})
                             Divider().background(Color.peach)
-                                .frame(width: geometry.dw(width: 0.5),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
+                                .frame(width: geometry.dw(width: 0.6),height: geometry.dh(height: 2)).padding(PagePadding.All.normal.rawValue)
                             Spacer().frame(height: geometry.dh(height: 0.1))
             
         }.padding(.paddingAll)
